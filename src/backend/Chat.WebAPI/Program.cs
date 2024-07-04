@@ -18,6 +18,17 @@ builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddSingleton<PasswordService>();
 builder.Services.AddData();
 builder.Services.AddJwtConfigs(builder.Configuration);
+var AllAllow = "allAllow";
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: AllAllow,
+        builder =>
+        {
+            builder.AllowAnyHeader();
+            builder.AllowAnyMethod();
+            builder.AllowAnyOrigin();
+        });
+});
 
 var app = builder.Build();
 app.UseAuthentication();
@@ -28,7 +39,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
+app.UseCors(AllAllow);
 app.UseHttpsRedirection();
 
 #region Endpoints Chat

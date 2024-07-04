@@ -1,0 +1,25 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    background-color: #e0f7fa;
+}
+
+.chat-container {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.conversations {
+    background-color: #b3e5fc;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.chat-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    height: calc(100% - 20px); /* Adjust for margins */
+}
