@@ -35,7 +35,8 @@ namespace Chat.Data.Repositories
 
         public async Task<IEnumerable<Message>> GetMessageAsync(Guid sourceUserId, Guid targetUserId, DateTime dateTimeOfLastMessage)
         {
-            var query = @"SELECT 
+            var query = @"SELECT * FROM 
+(SELECT 
 	                    *
                     FROM
 	                    messages 
@@ -52,8 +53,8 @@ namespace Chat.Data.Repositories
 	                    ""SourceUserId"" = @TargetUserId 
 	                    AND ""TargetUserId"" = @SourceUserId 	
 	                    AND ""ReceiveAt"" < @DateTimeOfLastMessage
-                    ORDER BY ""ReceiveAt"" ASC 
-                    LIMIT 10;";
+                    ORDER BY ""ReceiveAt"" DESC LIMIT 10) AS msg 
+ORDER BY ""ReceiveAt"" ASC;";
 
             try
             {

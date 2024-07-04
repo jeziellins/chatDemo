@@ -1,68 +1,8 @@
-<div class="message">
-    <div class="message-sender">Usuário 1:</div>
-    <div class="message-text">Olá! Como você está?</div>
-</div>
-<div class="message">
-    <div class="message-sender">Usuário 2:</div>
-    <div class="message-text">Estou bem, obrigado! E você?</div>
-</div>
-<div class="message">
-    <div class="message-sender">Usuário 2:</div>
-    <div class="message-text">Estou bem, obrigado! E você?</div>
-</div>
-<div class="message">
-    <div class="message-sender">Usuário 2:</div>
-    <div class="message-text">Estou bem, obrigado! E você?</div>
-</div>
-<div class="message">
-    <div class="message-sender">Usuário 2:</div>
-    <div class="message-text">Estou bem, obrigado! E você?</div>
-</div>
-<div class="message">
-    <div class="message-sender">Usuário 2:</div>
-    <div class="message-text">Estou bem, obrigado! E você?</div>
-</div>
-<div class="message">
-    <div class="message-sender">Usuário 2:</div>
-    <div class="message-text">Estou bem, obrigado! E você?</div>
-</div>
-<div class="message">
-    <div class="message-sender">Usuário 2:</div>
-    <div class="message-text">Estou bem, obrigado! E você?</div>
-</div>
-<div class="message">
-    <div class="message-sender">Usuário 2:</div>
-    <div class="message-text">Estou bem, obrigado! E você?</div>
-</div>
-<div class="message">
-    <div class="message-sender">Usuário 2:</div>
-    <div class="message-text">Estou bem, obrigado! E você?</div>
-</div>
-<div class="message">
-    <div class="message-sender">Usuário 2:</div>
-    <div class="message-text">Estou bem, obrigado! E você?</div>
-</div>
-<div class="message">
-    <div class="message-sender">Usuário 2:</div>
-    <div class="message-text">Estou bem, obrigado! E você?</div>
-</div>
-<div class="message">
-    <div class="message-sender">Usuário 2:</div>
-    <div class="message-text">Estou bem, obrigado! E você?</div>
-</div>
-<div class="message">
-    <div class="message-sender">Usuário 2:</div>
-    <div class="message-text">Estou bem, obrigado! E você?</div>
-</div>
-<div class="message">
-    <div class="message-sender">Usuário 2:</div>
-    <div class="message-text">Estou bem, obrigado! E você?</div>
-</div>
-<div class="message">
-    <div class="message-sender">Usuário 2:</div>
-    <div class="message-text">Estou bem, obrigado! E você?</div>
-</div>
-<div class="message">
-    <div class="message-sender">Usuário 2:</div>
-    <div class="message-text">Estou bem, obrigado! E você?</div>
+<div *ngIf="messages.length > 0">
+    <div *ngFor="let message of messages" [ngClass]="{'isSourceMessage' : isSourceMessage(message.sourceUserId)}">
+        <div class="message">
+            <div class="message-sender">{{ message.sourceUserId }}</div>
+            <div class="message-text">{{ message.text }}</div>
+        </div>
+    </div>
 </div>

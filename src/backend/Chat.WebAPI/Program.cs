@@ -45,15 +45,22 @@ app.UseHttpsRedirection();
 #region Endpoints Chat
 app.MapPost("/api/send", [Authorize] async (MessageViewModel messageViewModel, IMessageRepository messageRepository, HttpContext context) =>
 {
-    await messageRepository.SaveAsync(new Message
+    try
     {
-        Id = Guid.NewGuid(),
-        ReceiveAt = DateTime.Now,
-        SourceUserId = GetUserId(context),
-        TargetUserId = messageViewModel.TargetUserId,
-        Text = messageViewModel.Text
-    });
-    return Results.Ok();
+        await messageRepository.SaveAsync(new Message
+        {
+            Id = Guid.NewGuid(),
+            ReceiveAt = DateTime.Now,
+            SourceUserId = GetUserId(context),
+            TargetUserId = messageViewModel.TargetUserId,
+            Text = messageViewModel.Text
+        });
+        return Results.Ok();
+    }
+    catch (Exception)
+    {
+        return Results.BadRequest();
+    }
 })
 .WithName("SendNewMenssage")
 .WithOpenApi();

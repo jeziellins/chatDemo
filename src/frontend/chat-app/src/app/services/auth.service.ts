@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse  } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { catchError, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -20,11 +20,25 @@ export class AuthService {
         if (response && response.jwtToken) {
           localStorage.setItem('jwtToken', response.jwtToken);
         }
-      })
+      }),
+      catchError(this.handleError)
     );
   }
 
   isLoggedIn(): boolean {
     return !!localStorage.getItem('jwtToken');
+  }
+
+  private handleError(error: HttpErrorResponse): Observable<never> {
+    let errorMessage = 'Ocorreu um erro desconhecido!';
+    if (error.error instanceof ErrorEvent) {
+      errorMessage = `Erro: ${error.error.message}`;
+    } else {
+      if(error.status == 401)
+        errorMessage = `Usuário ou senha inválido!`;
+    }
+    return new Observable<never>((observer) => {
+      observer.error(errorMessage);
+    });
   }
 }

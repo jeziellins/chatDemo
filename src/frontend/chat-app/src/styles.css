@@ -58,6 +58,7 @@ html {
     margin-bottom: 10px;
     border-radius: 10px;
     background-color: #e1f5fe;
+    display: inline-block;
 }
 
 .message-sender {

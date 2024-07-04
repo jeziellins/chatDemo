@@ -10,15 +10,20 @@ import { Router } from '@angular/router';
 export class LoginComponent {
   email: string = '';
   password: string = '';
+  errorMessage: string = '';
 
   constructor(private authService: AuthService, private router: Router) { }
 
   onSubmit(): void {
-    this.authService.login(this.email, this.password).subscribe(response => {
-      console.log('Login bem-sucedido', response);
-      this.router.navigate(['/home']); 
-    }, error => {
-      console.error('Erro de login', error);
+    this.authService.login(this.email, this.password).subscribe({
+      next: (response) => {
+        console.log('Login bem-sucedido', response);
+        this.router.navigate(['/home']); 
+      },
+      error: (error) => {
+        this.errorMessage = error;
+        console.error('Erro de login', error);
+      }
     });
   }
 }
