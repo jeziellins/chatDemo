@@ -1,0 +1,287 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\NoteJeziel\\source\\repos\\chat_angular_dotnet\\src\\backend\\Chat.WebAPI\\Chat.WebAPI.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\NoteJeziel\\source\\repos\\chat_angular_dotnet\\src\\backend\\Chat.Abstractions\\Chat.Abstractions.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\NoteJeziel\\source\\repos\\chat_angular_dotnet\\src\\backend\\Chat.Abstractions\\Chat.Abstractions.csproj",
+        "projectName": "Chat.Abstractions",
+        "projectPath": "C:\\Users\\NoteJeziel\\source\\repos\\chat_angular_dotnet\\src\\backend\\Chat.Abstractions\\Chat.Abstractions.csproj",
+        "packagesPath": "C:\\Users\\NoteJeziel\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\NoteJeziel\\source\\repos\\chat_angular_dotnet\\src\\backend\\Chat.Abstractions\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\NoteJeziel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\HisegPackages": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\Users\\NoteJeziel\\source\\repos\\chat_angular_dotnet\\src\\backend\\Chat.Model\\Chat.Model.csproj": {
+                "projectPath": "C:\\Users\\NoteJeziel\\source\\repos\\chat_angular_dotnet\\src\\backend\\Chat.Model\\Chat.Model.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\NoteJeziel\\source\\repos\\chat_angular_dotnet\\src\\backend\\Chat.Data\\Chat.Data.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\NoteJeziel\\source\\repos\\chat_angular_dotnet\\src\\backend\\Chat.Data\\Chat.Data.csproj",
+        "projectName": "Chat.Data",
+        "projectPath": "C:\\Users\\NoteJeziel\\source\\repos\\chat_angular_dotnet\\src\\backend\\Chat.Data\\Chat.Data.csproj",
+        "packagesPath": "C:\\Users\\NoteJeziel\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\NoteJeziel\\source\\repos\\chat_angular_dotnet\\src\\backend\\Chat.Data\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\NoteJeziel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\HisegPackages": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\Users\\NoteJeziel\\source\\repos\\chat_angular_dotnet\\src\\backend\\Chat.Abstractions\\Chat.Abstractions.csproj": {
+                "projectPath": "C:\\Users\\NoteJeziel\\source\\repos\\chat_angular_dotnet\\src\\backend\\Chat.Abstractions\\Chat.Abstractions.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.1.35, )"
+            },
+            "Microsoft.Extensions.Configuration.Abstractions": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Npgsql": {
+              "target": "Package",
+              "version": "[8.0.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\NoteJeziel\\source\\repos\\chat_angular_dotnet\\src\\backend\\Chat.Model\\Chat.Model.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\NoteJeziel\\source\\repos\\chat_angular_dotnet\\src\\backend\\Chat.Model\\Chat.Model.csproj",
+        "projectName": "Chat.Model",
+        "projectPath": "C:\\Users\\NoteJeziel\\source\\repos\\chat_angular_dotnet\\src\\backend\\Chat.Model\\Chat.Model.csproj",
+        "packagesPath": "C:\\Users\\NoteJeziel\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\NoteJeziel\\source\\repos\\chat_angular_dotnet\\src\\backend\\Chat.Model\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\NoteJeziel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\HisegPackages": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\NoteJeziel\\source\\repos\\chat_angular_dotnet\\src\\backend\\Chat.WebAPI\\Chat.WebAPI.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\NoteJeziel\\source\\repos\\chat_angular_dotnet\\src\\backend\\Chat.WebAPI\\Chat.WebAPI.csproj",
+        "projectName": "Chat.WebAPI",
+        "projectPath": "C:\\Users\\NoteJeziel\\source\\repos\\chat_angular_dotnet\\src\\backend\\Chat.WebAPI\\Chat.WebAPI.csproj",
+        "packagesPath": "C:\\Users\\NoteJeziel\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\NoteJeziel\\source\\repos\\chat_angular_dotnet\\src\\backend\\Chat.WebAPI\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\NoteJeziel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\HisegPackages": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\Users\\NoteJeziel\\source\\repos\\chat_angular_dotnet\\src\\backend\\Chat.Data\\Chat.Data.csproj": {
+                "projectPath": "C:\\Users\\NoteJeziel\\source\\repos\\chat_angular_dotnet\\src\\backend\\Chat.Data\\Chat.Data.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[8.0.6, )"
+            },
+            "Microsoft.AspNetCore.OpenApi": {
+              "target": "Package",
+              "version": "[8.0.1, )"
+            },
+            "Microsoft.Extensions.Identity.Core": {
+              "target": "Package",
+              "version": "[8.0.6, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.4.0, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[7.6.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+C:\Users\NoteJeziel\source\repos\chat_angular_dotnet\src\backend\Chat.Abstractions\bin\Debug\net8.0\Chat.Abstractions.deps.json
+C:\Users\NoteJeziel\source\repos\chat_angular_dotnet\src\backend\Chat.Abstractions\bin\Debug\net8.0\Chat.Abstractions.dll
+C:\Users\NoteJeziel\source\repos\chat_angular_dotnet\src\backend\Chat.Abstractions\bin\Debug\net8.0\Chat.Abstractions.pdb
+C:\Users\NoteJeziel\source\repos\chat_angular_dotnet\src\backend\Chat.Abstractions\bin\Debug\net8.0\Chat.Model.dll
+C:\Users\NoteJeziel\source\repos\chat_angular_dotnet\src\backend\Chat.Abstractions\bin\Debug\net8.0\Chat.Model.pdb
+C:\Users\NoteJeziel\source\repos\chat_angular_dotnet\src\backend\Chat.Abstractions\obj\Debug\net8.0\Chat.Abstractions.csproj.AssemblyReference.cache
+C:\Users\NoteJeziel\source\repos\chat_angular_dotnet\src\backend\Chat.Abstractions\obj\Debug\net8.0\Chat.Abstractions.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\NoteJeziel\source\repos\chat_angular_dotnet\src\backend\Chat.Abstractions\obj\Debug\net8.0\Chat.Abstractions.AssemblyInfoInputs.cache
+C:\Users\NoteJeziel\source\repos\chat_angular_dotnet\src\backend\Chat.Abstractions\obj\Debug\net8.0\Chat.Abstractions.AssemblyInfo.cs
+C:\Users\NoteJeziel\source\repos\chat_angular_dotnet\src\backend\Chat.Abstractions\obj\Debug\net8.0\Chat.Abstractions.csproj.CoreCompileInputs.cache
+C:\Users\NoteJeziel\source\repos\chat_angular_dotnet\src\backend\Chat.Abstractions\obj\Debug\net8.0\Chat.Abstractions.csproj.CopyComplete
+C:\Users\NoteJeziel\source\repos\chat_angular_dotnet\src\backend\Chat.Abstractions\obj\Debug\net8.0\Chat.Abstractions.dll
+C:\Users\NoteJeziel\source\repos\chat_angular_dotnet\src\backend\Chat.Abstractions\obj\Debug\net8.0\refint\Chat.Abstractions.dll
+C:\Users\NoteJeziel\source\repos\chat_angular_dotnet\src\backend\Chat.Abstractions\obj\Debug\net8.0\Chat.Abstractions.pdb
+C:\Users\NoteJeziel\source\repos\chat_angular_dotnet\src\backend\Chat.Abstractions\obj\Debug\net8.0\ref\Chat.Abstractions.dll
