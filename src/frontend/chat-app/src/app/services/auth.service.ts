@@ -1,14 +1,19 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse  } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
+import { jwtDecode } from 'jwt-decode';
+
+interface JwtPayload {
+  exp: number;
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  private apiUrl = 'https://localhost:7208/api/login'; 
+  private apiUrl = 'https://localhost:7208/api/login';
 
   constructor(private http: HttpClient) { }
 
@@ -25,8 +30,19 @@ export class AuthService {
     );
   }
 
-  isLoggedIn(): boolean {
-    return !!localStorage.getItem('jwtToken');
+  isTokenExpired(token: string): boolean {
+    if (!token) return true;
+
+    const decoded: JwtPayload = jwtDecode(token);
+    const expirationDate = new Date(0);
+    expirationDate.setUTCSeconds(decoded.exp);
+
+    return expirationDate < new Date();
+  }
+
+  isLoggedIn(): boolean {    
+    const token = localStorage.getItem('jwtToken');;
+    return token ? !this.isTokenExpired(token) : false;
   }
 
   private handleError(error: HttpErrorResponse): Observable<never> {
@@ -34,7 +50,7 @@ export class AuthService {
     if (error.error instanceof ErrorEvent) {
       errorMessage = `Erro: ${error.error.message}`;
     } else {
-      if(error.status == 401)
+      if (error.status == 401)
         errorMessage = `Usuário ou senha inválido!`;
     }
     return new Observable<never>((observer) => {
