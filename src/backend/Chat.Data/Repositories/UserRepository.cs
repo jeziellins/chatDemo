@@ -1,4 +1,5 @@
 ﻿using Chat.Abstractions;
+using Chat.Model;
 using Dapper;
 using Microsoft.Extensions.Logging;
 
@@ -13,6 +14,22 @@ namespace Chat.Data.Repositories
         {
             _context = context;
             _logger = logger;
+        }
+
+        public async Task<IEnumerable<User>> GetAllUsersAsync()
+        {
+            var query = @"SELECT * FROM users ORDER BY ""Name"" ASC";
+
+            try
+            {   
+                using var connection = _context.CreateConnection();
+                return await connection.QueryAsync<User>(query);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("[UserRepository/GetAllUsersAsync] - {message}", ex.Message);
+                throw;
+            }
         }
 
         public async Task<(Guid Id, string Hash)> GetUserHashAsync(string email)

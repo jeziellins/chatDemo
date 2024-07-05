@@ -81,6 +81,28 @@ app.MapGet("/api/messages/{targetUserId}/{dateTimeOfLastMessage}", [Authorize] a
 .WithOpenApi();
 #endregion
 
+#region Endpoints Users
+app.MapGet("/api/users", [Authorize] async (IUserRepository userRepository, HttpContext context) =>
+{
+    try
+    {
+        var users = await userRepository.GetAllUsersAsync();
+        var result = new List<UserViewModel>();
+        foreach (var user in users)
+        {
+            result.Add(new UserViewModel(user));
+        }
+        return Results.Ok(result);
+    }
+    catch (Exception)
+    {
+        return Results.BadRequest();
+    }
+})
+.WithName("GetUsers")
+.WithOpenApi();
+#endregion
+
 #region Endpoints Autenticação
 app.MapPost("/api/login", async (LoginViewModel loginViewModel,
     IUserRepository userRepository,
