@@ -1,6 +1,11 @@
 <div class="container-fluid chat-container pl-0">
-    <div class="col-md-3 conversations p-0">
-        <app-conversations (setTargetUserId)="onSetTargetUserId($event)"></app-conversations>
+    <div class="col-md-3 user-content conversations p-0">
+        <div class="user-list">
+            <app-conversations (setTargetUserId)="onSetTargetUserId($event)"></app-conversations>
+        </div>
+        <div class="exit">
+            <button (click)="exit()" class="btn btn-info btn-sm btn-block">Sair</button>
+        </div>
     </div>
     <div class="col-md-9 p-3 chat-content">
         <div class="chat-history">

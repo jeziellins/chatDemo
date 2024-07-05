@@ -40,7 +40,6 @@ html {
     flex-direction: column;
     margin: 10px;
     height: calc(100% - 20px);
-    /* Adjust for margins */
 }
 
 .chat-history {
@@ -69,4 +68,19 @@ html {
     padding-top: 10px;
     background-color: #ffffff;
     border-top: 1px solid #81d4fa;
+}
+
+.user-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 20px);
+}
+
+.user-list {
+    flex-grow: 1;
+}
+
+.exit {
+    padding: 10px;    
 }
