@@ -1,22 +1,8 @@
+<div *ngIf="errorMessage" class="error">
+    {{ errorMessage }}
+</div>
 <ul class="conversation-list">
-    <li class="conversation-item">Conversa 1</li>
-    <li class="conversation-item">Conversa 2</li>
-    <li class="conversation-item">Conversa 3</li>
-    <li class="conversation-item">Conversa 3</li>
-    <li class="conversation-item">Conversa 3</li>
-    <li class="conversation-item">Conversa 3</li>
-    <li class="conversation-item">Conversa 3</li>
-    <li class="conversation-item">Conversa 3</li>
-    <li class="conversation-item">Conversa 3</li>
-    <li class="conversation-item">Conversa 3</li>
-    <li class="conversation-item">Conversa 3</li>
-    <li class="conversation-item">Conversa 3</li>
-    <li class="conversation-item">Conversa 3</li>
-    <li class="conversation-item">Conversa 3</li>
-    <li class="conversation-item">Conversa 3</li>
-    <li class="conversation-item">Conversa 3</li>
-    <li class="conversation-item">Conversa 3</li>
-    <li class="conversation-item">Conversa 3</li>
-    <li class="conversation-item">Conversa 3</li>
-    <li class="conversation-item">Conversa 3</li>
+    <li *ngFor="let user of users" class="conversation-item" (click)="onSetTargetUserId(user.id)">
+        {{ user.name }}
+    </li>
 </ul>

@@ -5,6 +5,10 @@ import { Component } from '@angular/core';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
-
+export class HomeComponent {  
+  targetUserIdShared: string = '';
+  
+  onSetTargetUserId(id: string) {
+    this.targetUserIdShared = id;
+  }
 }
