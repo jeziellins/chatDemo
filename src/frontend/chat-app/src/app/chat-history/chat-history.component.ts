@@ -9,31 +9,38 @@ import { HubService } from '../services/hub.service'
 })
 export class ChatHistoryComponent {
   @Input() targetUserId: string = '';
+  @Input() scrollPosition: string = '';
   errorMessage: string = '';
-  scrollLoad: boolean = false;
   messages: Message[] = [];
 
   constructor(private messageService: MessageService, private hubService: HubService) {
     const connection = this.hubService.getConnection();
     connection.on("MessageNotify", (message: Message) => {
-      console.log(message);
+      let userId = localStorage.getItem('userId');
+      if ((message.sourceUserId == userId && message.targetUserId == this.targetUserId) || 
+          (message.sourceUserId == this.targetUserId && message.targetUserId == userId)) {
+        this.messages.push(message);  
+        this.scrollCheck();
+      }            
     });
   }
 
   isSourceMessage(sourceUserId: string) {
-    return sourceUserId !== this.targetUserId;    
+    return sourceUserId !== this.targetUserId;
   }
 
-  ngDoCheck() {
-    if (!this.scrollLoad) {
-      let container = document.getElementById('scrollContainer');
-      if (container) {
-        container.scrollTop = container.scrollHeight;
-        if (container.scrollTop > 0)
-          this.scrollLoad = (container.scrollHeight - container.clientHeight) == container.scrollTop;
+  scrollCheck() {
+    setTimeout(() => {
+      if (this.scrollPosition == "bottom") {
+        let container = document.getElementById('scrollContainer');
+        if (container) {
+          container.scrollTop = container.scrollHeight;
+        }
       }
-    }
+    }, 200);
   }
+
+
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes['targetUserId'] && this.targetUserId) {
@@ -57,7 +64,13 @@ export class ChatHistoryComponent {
           this.messages = [];
         }
       });
-      this.scrollLoad = false;
+
+      this.scrollCheck();
+    }
+    if (changes['scrollPosition']) {
+      console.log(this.scrollPosition);
     }
   }
+
+
 }

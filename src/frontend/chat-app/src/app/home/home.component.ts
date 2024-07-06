@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener  } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,14 +8,32 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent {
   targetUserIdShared: string = '';
-  private isScrolling: any;
+  scrollPosition : string = '';
 
   constructor(private router: Router) { }
 
   onSetTargetUserId(id: string) {
     this.targetUserIdShared = id;
+    this.scrollPosition = "bottom";
   }
-  
+
+  @HostListener('scroll', ['$event'])
+  onScroll(event: any): void {
+    const element = event.target;
+
+    const scrollTop = element.scrollTop;
+    const scrollHeight = element.scrollHeight;
+    const clientHeight = element.clientHeight;
+
+    if (scrollTop === 0) {
+      this.scrollPosition= 'top';
+    } else if (scrollTop + clientHeight >= scrollHeight) {
+      this.scrollPosition= 'bottom';
+    } else {
+      this.scrollPosition= 'middle';
+    }
+  }
+
   exit() {
     localStorage.removeItem('jwtToken');
     localStorage.removeItem('userId');

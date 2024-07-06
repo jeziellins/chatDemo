@@ -63,7 +63,7 @@ app.MapPost("/api/send", [Authorize] async (MessageViewModel messageViewModel, I
             Text = messageViewModel.Text
         };
         await messageRepository.SaveAsync(message);
-        await hubContext.Clients.All.SendAsync("MessageNotify", message);
+        await hubContext.Clients.Users(message.SourceUserId.ToString(), message.TargetUserId.ToString()).SendAsync("MessageNotify", message);
         return Results.Ok();
     }
     catch (Exception)

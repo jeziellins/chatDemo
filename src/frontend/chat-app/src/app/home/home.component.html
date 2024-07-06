@@ -8,8 +8,8 @@
         </div>
     </div>
     <div *ngIf="targetUserIdShared" class="col-md-9 p-3 chat-content">
-        <div id="scrollContainer" class="chat-history">
-            <app-chat-history [targetUserId]="targetUserIdShared"></app-chat-history>
+        <div id="scrollContainer" class="chat-history" (scroll)="onScroll($event)">
+            <app-chat-history [targetUserId]="targetUserIdShared" [scrollPosition]="scrollPosition"></app-chat-history>
         </div>
         <div class="chat-input">
             <app-chat-input [targetUserId]="targetUserIdShared"></app-chat-input>
