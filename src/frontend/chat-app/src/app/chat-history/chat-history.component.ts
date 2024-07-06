@@ -1,5 +1,6 @@
 import { Component, Input, SimpleChanges } from '@angular/core';
 import { MessageService, Message } from '../services/message.service';
+import { HubService } from '../services/hub.service'
 
 @Component({
   selector: 'app-chat-history',
@@ -12,8 +13,11 @@ export class ChatHistoryComponent {
   scrollLoad: boolean = false;
   messages: Message[] = [];
 
-  constructor(private messageService: MessageService) {
-
+  constructor(private messageService: MessageService, private hubService: HubService) {
+    const connection = this.hubService.getConnection();
+    connection.on("MessageNotify", (message: Message) => {
+      console.log(message);
+    });
   }
 
   isSourceMessage(sourceUserId: string) {

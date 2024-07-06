@@ -2,17 +2,20 @@ using Chat.Abstractions;
 using Chat.Data;
 using Chat.Data.Repositories;
 using Chat.Model;
+using Chat.WebAPI.Hubs;
 using Chat.WebAPI.Extensions;
 using Chat.WebAPI.Services;
 using Chat.WebAPI.ViewModels;
 using Microsoft.AspNetCore.Authorization;
-using System.Globalization;
 using System.Security.Claims;
+using Microsoft.AspNetCore.SignalR;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddSignalR();
+builder.Services.AddSingleton<IUserIdProvider, UserIdProvider>();
 builder.Services.AddScoped<IMessageRepository, MessageRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddSingleton<PasswordService>();
@@ -45,18 +48,22 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 #region Endpoints Chat
-app.MapPost("/api/send", [Authorize] async (MessageViewModel messageViewModel, IMessageRepository messageRepository, HttpContext context) =>
+app.MapPost("/api/send", [Authorize] async (MessageViewModel messageViewModel, IMessageRepository messageRepository,
+    HttpContext context,
+    IHubContext<ChatHub> hubContext) =>
 {
     try
     {
-        await messageRepository.SaveAsync(new Message
+        var message = new Message
         {
             Id = Guid.NewGuid(),
             ReceiveAt = DateTime.Now,
             SourceUserId = GetUserId(context),
             TargetUserId = messageViewModel.TargetUserId,
             Text = messageViewModel.Text
-        });
+        };
+        await messageRepository.SaveAsync(message);
+        await hubContext.Clients.All.SendAsync("MessageNotify", message);
         return Results.Ok();
     }
     catch (Exception)
@@ -131,6 +138,7 @@ app.MapPost("/api/login", async (LoginViewModel loginViewModel,
 .WithOpenApi();
 #endregion
 
+app.MapHub<ChatHub>("/hubs/chat");
 app.Run();
 
 
