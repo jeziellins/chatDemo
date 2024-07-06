@@ -7,12 +7,12 @@
             <button (click)="exit()" class="btn btn-info btn-sm btn-block">Sair</button>
         </div>
     </div>
-    <div class="col-md-9 p-3 chat-content">
-        <div class="chat-history">
+    <div *ngIf="targetUserIdShared" class="col-md-9 p-3 chat-content">
+        <div id="scrollContainer" class="chat-history">
             <app-chat-history [targetUserId]="targetUserIdShared"></app-chat-history>
         </div>
         <div class="chat-input">
-            <app-chat-input></app-chat-input>
+            <app-chat-input [targetUserId]="targetUserIdShared"></app-chat-input>
         </div>
     </div>
 </div>

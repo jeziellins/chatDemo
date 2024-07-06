@@ -32,4 +32,5 @@ export class UserService {
 export interface User {
   id: string;
   name: string;
+  selected: boolean;
 }

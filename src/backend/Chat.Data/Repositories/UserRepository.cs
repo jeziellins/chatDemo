@@ -16,14 +16,18 @@ namespace Chat.Data.Repositories
             _logger = logger;
         }
 
-        public async Task<IEnumerable<User>> GetAllUsersAsync()
+        public async Task<IEnumerable<User>> GetAllUsersAsync(Guid userId)
         {
-            var query = @"SELECT * FROM users ORDER BY ""Name"" ASC";
+            var query = @"SELECT * FROM users WHERE ""Id"" <> @Id ORDER BY ""Name"" ASC";
 
             try
             {   
                 using var connection = _context.CreateConnection();
-                return await connection.QueryAsync<User>(query);
+                var parameters = new
+                {
+                    Id = userId
+                };
+                return await connection.QueryAsync<User>(query, parameters);
             }
             catch (Exception ex)
             {

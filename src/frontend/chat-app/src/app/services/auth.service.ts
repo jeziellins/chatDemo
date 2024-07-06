@@ -6,6 +6,7 @@ import { jwtDecode } from 'jwt-decode';
 
 interface JwtPayload {
   exp: number;
+  sub: string;
 }
 
 @Injectable({
@@ -23,6 +24,8 @@ export class AuthService {
     return this.http.post<any>(this.apiUrl, body).pipe(
       tap(response => {
         if (response && response.jwtToken) {
+          const decoded: JwtPayload = jwtDecode(response.jwtToken);
+          localStorage.setItem('userId', decoded.sub);
           localStorage.setItem('jwtToken', response.jwtToken);
         }
       }),

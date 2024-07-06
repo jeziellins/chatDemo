@@ -86,7 +86,7 @@ app.MapGet("/api/users", [Authorize] async (IUserRepository userRepository, Http
 {
     try
     {
-        var users = await userRepository.GetAllUsersAsync();
+        var users = await userRepository.GetAllUsersAsync(GetUserId(context));
         var result = new List<UserViewModel>();
         foreach (var user in users)
         {

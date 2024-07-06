@@ -9,12 +9,26 @@ import { MessageService, Message } from '../services/message.service';
 export class ChatHistoryComponent {
   @Input() targetUserId: string = '';
   errorMessage: string = '';
+  scrollLoad: boolean = false;
   messages: Message[] = [];
 
-  constructor(private messageService: MessageService) { }
+  constructor(private messageService: MessageService) {
+
+  }
 
   isSourceMessage(sourceUserId: string) {
-    return sourceUserId !== this.targetUserId;
+    return sourceUserId !== this.targetUserId;    
+  }
+
+  ngDoCheck() {
+    if (!this.scrollLoad) {
+      let container = document.getElementById('scrollContainer');
+      if (container) {
+        container.scrollTop = container.scrollHeight;
+        if (container.scrollTop > 0)
+          this.scrollLoad = (container.scrollHeight - container.clientHeight) == container.scrollTop;
+      }
+    }
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -39,6 +53,7 @@ export class ChatHistoryComponent {
           this.messages = [];
         }
       });
+      this.scrollLoad = false;
     }
   }
 }

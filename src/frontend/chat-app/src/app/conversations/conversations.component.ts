@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output} from '@angular/core';
 import { UserService, User } from '../services/user.service';
 
 @Component({
@@ -22,10 +22,13 @@ export class ConversationsComponent {
         this.errorMessage = error.message;
       }
     });
+    
   } 
 
   onSetTargetUserId(id: string) {
-    console.log(id);
     this.setTargetUserId.emit(id);
+    for (let i = 0; i < this.users.length; i++) {
+        this.users[i].selected = this.users[i].id === id; 
+    }
   }
 }

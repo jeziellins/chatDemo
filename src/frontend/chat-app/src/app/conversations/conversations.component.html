@@ -2,7 +2,7 @@
     {{ errorMessage }}
 </div>
 <ul class="conversation-list">
-    <li *ngFor="let user of users" class="conversation-item" (click)="onSetTargetUserId(user.id)">
+    <li *ngFor="let user of users" class="conversation-item" [ngClass]="{'conversation-item-selected' : user.selected}" (click)="onSetTargetUserId(user.id)">
         {{ user.name }}
     </li>
 </ul>
