@@ -14,7 +14,7 @@ export class AuthInterceptor implements HttpInterceptor {
 
   constructor(private router: Router) {}
 
-  intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
+  intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<any>> {
     const jwtToken = localStorage.getItem('jwtToken');
 
     if (jwtToken) {
@@ -22,8 +22,8 @@ export class AuthInterceptor implements HttpInterceptor {
         headers: request.headers.set('Authorization', `Bearer ${jwtToken}`)
       });
       return next.handle(cloned).pipe(
-        catchError((error: HttpErrorResponse) => {
-          if (error.status === 401) {
+        catchError((error: HttpErrorResponse) => {          
+          if (error.status == 401) {
             this.router.navigate(['/login']);
           }
           return throwError(() => new Error(error.message));

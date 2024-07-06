@@ -39,7 +39,6 @@ export class AuthService {
     const decoded: JwtPayload = jwtDecode(token);
     const expirationDate = new Date(0);
     expirationDate.setUTCSeconds(decoded.exp);
-
     return expirationDate < new Date();
   }
 

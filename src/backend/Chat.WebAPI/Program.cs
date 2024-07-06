@@ -24,13 +24,15 @@ builder.Services.AddCors(options =>
     options.AddPolicy(name: AllAllow,
         builder =>
         {
+            builder.WithOrigins("http://localhost:4200");
             builder.AllowAnyHeader();
             builder.AllowAnyMethod();
-            builder.AllowAnyOrigin();
+            builder.AllowCredentials();
         });
 });
 
 var app = builder.Build();
+app.UseCors(AllAllow);
 app.UseAuthentication();
 app.UseAuthorization();
 
@@ -39,7 +41,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-app.UseCors(AllAllow);
+
 app.UseHttpsRedirection();
 
 #region Endpoints Chat
