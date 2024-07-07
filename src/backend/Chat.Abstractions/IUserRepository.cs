@@ -6,5 +6,6 @@ namespace Chat.Abstractions
     {
         Task<(Guid Id, string Hash)> GetUserHashAsync(string email);
         Task<IEnumerable<User>> GetAllUsersAsync(Guid userId);
+        Task<User> GetUser(Guid userId);
     }
 }

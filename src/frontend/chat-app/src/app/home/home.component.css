@@ -23,3 +23,11 @@ body, html {
     margin: 10px;
     height: calc(100% - 20px); /* Adjust for margins */
 }
+
+.userHeader{
+    background-color: cadetblue;
+    text-align: center;
+    padding-top: 10px;
+    color: #fff;
+    height: 70px;
+}

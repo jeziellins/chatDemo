@@ -110,6 +110,22 @@ app.MapGet("/api/users", [Authorize] async (IUserRepository userRepository, Http
 })
 .WithName("GetUsers")
 .WithOpenApi();
+
+app.MapGet("/api/user", [Authorize] async (IUserRepository userRepository, HttpContext context) =>
+{
+    try
+    {
+        var user = await userRepository.GetUser(GetUserId(context));
+        var result = new UserViewModel(user);
+        return Results.Ok(result);
+    }
+    catch (Exception)
+    {
+        return Results.BadRequest();
+    }
+})
+.WithName("GetUser")
+.WithOpenApi();
 #endregion
 
 #region Endpoints Autenticação

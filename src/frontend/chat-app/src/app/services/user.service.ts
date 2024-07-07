@@ -2,18 +2,26 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  private apiUrl = 'https://localhost:7208/api/users'; // Substitua pela URL do seu endpoint
+  private endpontUsers = `${environment.apiUrl}/api/users`; 
+  private endpontUser = `${environment.apiUrl}/api/user`; 
 
   constructor(private http: HttpClient) { }
 
   getUsers(): Observable<User[]> {
-    return this.http.get<User[]>(this.apiUrl).pipe(
+    return this.http.get<User[]>(this.endpontUsers).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  getUser(): Observable<User> {
+    return this.http.get<User>(this.endpontUser).pipe(
       catchError(this.handleError)
     );
   }
@@ -32,5 +40,6 @@ export class UserService {
 export interface User {
   id: string;
   name: string;
+  email: string;
   selected: boolean;
 }

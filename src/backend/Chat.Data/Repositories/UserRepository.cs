@@ -18,7 +18,7 @@ namespace Chat.Data.Repositories
 
         public async Task<IEnumerable<User>> GetAllUsersAsync(Guid userId)
         {
-            var query = @"SELECT * FROM users WHERE ""Id"" <> @Id ORDER BY ""Name"" ASC";
+            var query = @"SELECT * FROM users WHERE ""Id"" <> @Id ORDER BY ""Name"" ASC;";
 
             try
             {   
@@ -28,6 +28,26 @@ namespace Chat.Data.Repositories
                     Id = userId
                 };
                 return await connection.QueryAsync<User>(query, parameters);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("[UserRepository/GetAllUsersAsync] - {message}", ex.Message);
+                throw;
+            }
+        }
+
+        public async Task<User> GetUser(Guid userId)
+        {
+            var query = @"SELECT * FROM users WHERE ""Id"" = @Id;";
+
+            try
+            {
+                using var connection = _context.CreateConnection();
+                var parameters = new
+                {
+                    Id = userId
+                };
+                return await connection.QueryFirstAsync<User>(query, parameters);
             }
             catch (Exception ex)
             {

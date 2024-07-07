@@ -66,10 +66,7 @@ export class ChatHistoryComponent {
       });
 
       this.scrollCheck();
-    }
-    if (changes['scrollPosition']) {
-      console.log(this.scrollPosition);
-    }
+    }    
   }
 
 

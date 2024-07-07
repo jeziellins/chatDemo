@@ -64,8 +64,8 @@ html {
     display: inline-block;
 }
 
-.message-sender {
-    font-weight: bold;
+.message-date-time {    
+    font-size: xx-small;
 }
 
 .chat-input {

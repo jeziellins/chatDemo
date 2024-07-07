@@ -3,6 +3,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { jwtDecode } from 'jwt-decode';
+import { environment } from '../../environments/environment'
 
 interface JwtPayload {
   exp: number;
@@ -14,7 +15,7 @@ interface JwtPayload {
 })
 export class AuthService {
 
-  private apiUrl = 'https://localhost:7208/api/login';
+  private apiUrl = `${environment.apiUrl}/api/login`;
 
   constructor(private http: HttpClient) { }
 

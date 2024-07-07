@@ -1,5 +1,9 @@
 <div class="container-fluid chat-container pl-0">
     <div class="col-md-3 user-content conversations p-0">
+        <div class="userHeader">
+            <div>{{ user?.name }}</div>
+            <div>{{ user?.email }}</div>
+        </div>
         <div class="user-list">
             <app-conversations (setTargetUserId)="onSetTargetUserId($event)"></app-conversations>
         </div>

@@ -1,16 +1,28 @@
-import { Component, HostListener  } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserService, User } from '../services/user.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
+
 export class HomeComponent {
   targetUserIdShared: string = '';
-  scrollPosition : string = '';
+  scrollPosition: string = '';
+  user?: User;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private userService: UserService) {
+    this.userService.getUser().subscribe({
+      next: (data) => {
+        this.user = data;
+      },
+      error: (error) => {
+        console.log(error.message);
+      }
+    });
+  }
 
   onSetTargetUserId(id: string) {
     this.targetUserIdShared = id;
@@ -26,11 +38,11 @@ export class HomeComponent {
     const clientHeight = element.clientHeight;
 
     if (scrollTop === 0) {
-      this.scrollPosition= 'top';
+      this.scrollPosition = 'top';
     } else if (scrollTop + clientHeight >= scrollHeight) {
-      this.scrollPosition= 'bottom';
+      this.scrollPosition = 'bottom';
     } else {
-      this.scrollPosition= 'middle';
+      this.scrollPosition = 'middle';
     }
   }
 

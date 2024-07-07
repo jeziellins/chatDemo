@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpTransportType, HubConnection, HubConnectionBuilder, LogLevel } from "@microsoft/signalr";
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -7,10 +8,9 @@ import { HttpTransportType, HubConnection, HubConnectionBuilder, LogLevel } from
 export class HubService {
   hubConnection: HubConnection;
   constructor() {
-    const baseURL = "https://localhost:7208";
     const token = localStorage.getItem('jwtToken');
     this.hubConnection = new HubConnectionBuilder()
-      .withUrl(`${baseURL}/hubs/chat`, {
+      .withUrl(`${environment.apiUrl}/hubs/chat`, {
         accessTokenFactory: () => token as string,
         skipNegotiation: true,
         transport: HttpTransportType.WebSockets

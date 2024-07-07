@@ -2,15 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MessageService {
-
-  private endPointSend = 'https://localhost:7208/api/send';  
-  private endPointGetMessages = 'https://localhost:7208/api/messages'; 
-
+  private endPointSend = `${environment.apiUrl}/api/send`;  
+  private endPointGetMessages = `${environment.apiUrl}/api/messages`; 
 
   constructor(private http: HttpClient) { }
 

@@ -1,8 +1,8 @@
 <div *ngIf="messages.length > 0">
     <div *ngFor="let message of messages" [ngClass]="{'isSourceMessage' : isSourceMessage(message.sourceUserId)}">
         <div class="message">
-            <div class="message-sender">{{ message.sourceUserId }}</div>
             <div class="message-text">{{ message.text }}</div>
+            <div class="message-date-time">{{ message.receiveAt | date:'dd/MM HH:mm' }}</div>
         </div>
     </div>
 </div>
