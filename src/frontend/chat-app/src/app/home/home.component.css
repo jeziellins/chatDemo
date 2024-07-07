@@ -21,7 +21,7 @@ body, html {
     display: flex;
     flex-direction: column;
     margin: 10px;
-    height: calc(100% - 20px); /* Adjust for margins */
+    height: calc(100% - 20px); 
 }
 
 .userHeader{
