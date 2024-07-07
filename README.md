@@ -21,3 +21,20 @@ sequenceDiagram
     backend->>frontend: Notify new message for user1
     frontend-->>user1: Display new message
 ```
+
+# Context diagram for Chat System
+```mermaid
+    C4Context
+      Person_Ext(customerA, "User A", "User the Chat")        
+      Person_Ext(customerB, "User B", "user the Chat")
+      Boundary(b0, "Sistema para Troca de Mensagens") {
+        System(SystemA, "Chat", "Chat System")               
+      }
+
+      BiRel(customerA, SystemA, "Sen/Received messagens", "HTTP")
+      BiRel(customerB, SystemA, "Send/Receive messagens", "HTTP")
+      UpdateRelStyle(customerA, SystemA, $offsetY="-40")
+      UpdateRelStyle(customerB, SystemA, $offsetY="-40", $offsetX="60")      
+
+      UpdateLayoutConfig($c4ShapeInRow="2", $c4BoundaryInRow="1")
+```
