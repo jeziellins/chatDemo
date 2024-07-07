@@ -5,7 +5,8 @@
     <li *ngFor="let user of users" class="conversation-item" [ngClass]="{'conversation-item-selected' : user.selected}"
         (click)="onSetTargetUserId(user.id)">
         <div>
-            {{ user.name }}
+            <span>{{ user.name }} </span> 
+            <span *ngIf="user.isNewMessage" class="badge badge-pill badge-warning">{{ user.countNewMessage }}</span>
         </div>
         <div style="font-size: xx-small;">
             {{ user.email }}

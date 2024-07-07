@@ -41,5 +41,7 @@ export interface User {
   id: string;
   name: string;
   email: string;
+  isNewMessage: boolean;
+  countNewMessage: number;
   selected: boolean;
 }

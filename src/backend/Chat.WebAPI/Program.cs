@@ -157,8 +157,7 @@ app.MapPost("/api/login", async (LoginViewModel loginViewModel,
 app.MapHub<ChatHub>("/hubs/chat");
 app.Run();
 
-
-Guid GetUserId(HttpContext httpContext)
+static Guid GetUserId(HttpContext httpContext)
 {
     var userId = httpContext.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
     return userId is null ? throw new Exception("Claim NameIdentifier Not Found!") : Guid.Parse(userId);
