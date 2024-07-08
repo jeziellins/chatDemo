@@ -23,7 +23,7 @@ namespace Chat.WebAPI.Extensions
                         ValidateIssuerSigningKey = true,
                         ValidIssuer = configuration["Jwt:Issuer"],
                         ValidAudience = configuration["Jwt:Audience"],
-                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["Jwt:Key"])),
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["Jwt:Key"] ?? "{2E0EE7EC64F148168E5DA2674A9AF3A7}")),
                         ClockSkew = TimeSpan.Zero
                     };
 

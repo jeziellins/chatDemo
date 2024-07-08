@@ -51,7 +51,7 @@ namespace Chat.Data.Repositories
             }
             catch (Exception ex)
             {
-                _logger.LogError("[UserRepository/GetAllUsersAsync] - {message}", ex.Message);
+                _logger.LogError("[UserRepository/GetUser] - {message}", ex.Message);
                 throw;
             }
         }
@@ -72,7 +72,7 @@ namespace Chat.Data.Repositories
             }
             catch (Exception ex)
             {
-                _logger.LogError("[UserRepository/GetUserHash] - {message}", ex.Message);
+                _logger.LogError("[UserRepository/GetUserHashAsync] - {message}", ex.Message);
                 throw;
             }
         }

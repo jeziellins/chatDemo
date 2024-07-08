@@ -71,14 +71,9 @@ ORDER BY ""ReceiveAt"" ASC;";
             }
             catch (Exception ex)
             {
-                _logger.LogError("[MessageRepository/SaveAsync] - {message}", ex.Message);
+                _logger.LogError("[MessageRepository/GetMessageAsync] - {message}", ex.Message);
                 throw;
             }
-        }
-
-        public Task<IEnumerable<User>> GetChatsAsync(Guid userId)
-        {
-            throw new NotImplementedException();
         }
     }
 }
