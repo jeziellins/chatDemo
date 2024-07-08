@@ -43,7 +43,7 @@ sequenceDiagram
         System(SystemA, "Chat", "Chat System")               
       }
 
-      BiRel(customerA, SystemA, "Sen/Received messagens", "HTTP")
+      BiRel(customerA, SystemA, "Send/Receive messagens", "HTTP")
       BiRel(customerB, SystemA, "Send/Receive messagens", "HTTP")
       UpdateRelStyle(customerA, SystemA, $offsetY="-40")
       UpdateRelStyle(customerB, SystemA, $offsetY="-40", $offsetX="60")      
@@ -62,9 +62,9 @@ sequenceDiagram
         ContainerDb(database, "Database", "PostgreSQL", "Stores user and messages")
       }
 
-      BiRel(customerA, spa, "Sen/Received", "HTTP")
+      BiRel(customerA, spa, "Send/Receive", "HTTP")
       BiRel(customerB, spa, "Send/Receive", "HTTP")
-      BiRel(customerA, web_app, "Sen/Received", "HTTP")
+      BiRel(customerA, web_app, "Send/Receive", "HTTP")
       BiRel(customerB, web_app, "Send/Receive", "HTTP")
       Rel(web_app, database, "Dapper")
       UpdateRelStyle(customerA, spa, $offsetY="-40", $offsetX="-90")
