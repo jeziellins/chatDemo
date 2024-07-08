@@ -2,6 +2,8 @@
 
 This project aims to present a solution for real-time communication using a chat system.
 
+[![Watch the video](https://img.youtube.com/vi/fkwB5MFFPZg/default.jpg)](https://youtu.be/fkwB5MFFPZg)
+
 ## Technologies Used:
 - .NET 8
 - ASP.NET Core
