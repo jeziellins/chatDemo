@@ -56,23 +56,21 @@ sequenceDiagram
 ```mermaid
     C4Container
       Person_Ext(customerA, "User A", "User the Chat")        
-      Person_Ext(customerB, "User B", "user the Chat")
+      Person_Ext(customerB, "User B", "User the Chat")
 
       Container_Boundary(c1, "Chat") {
         Container(spa, "Single-Page App", "TypeScript, Angular", "Frontend")
-        Container(web_app, "Web Application", ".NET, c#, ASP.NET Core", "Backend")
+        Container(web_app, "WebAPI REST", ".NET, c#, ASP.NET Core", "Backend")
         ContainerDb(database, "Database", "PostgreSQL", "Stores user and messages")
       }
 
-      BiRel(customerA, spa, "Send/Receive", "HTTP")
-      BiRel(customerB, spa, "Send/Receive", "HTTP")
-      BiRel(customerA, web_app, "Send/Receive", "HTTP")
-      BiRel(customerB, web_app, "Send/Receive", "HTTP")
+      BiRel(customerA, spa, "User Interface")
+      BiRel(customerB, spa, "User Interface")
+      BiRel(spa, web_app, "Send/Receive", "HTTP")
       Rel(web_app, database, "Dapper")
       UpdateRelStyle(customerA, spa, $offsetY="-40", $offsetX="-90")
       UpdateRelStyle(customerB, spa, $offsetY="-40", $offsetX="60")   
-      UpdateRelStyle(customerA, web_app, $offsetY="-80", $offsetX="-90")
-      UpdateRelStyle(customerB, web_app, $offsetY="-70", $offsetX="0")      
+      UpdateRelStyle(spa, web_app, $offsetY="-35", $offsetX="-40")
 
       UpdateLayoutConfig($c4ShapeInRow="2", $c4BoundaryInRow="1")
 ```
