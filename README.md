@@ -58,19 +58,21 @@ sequenceDiagram
       Person_Ext(customerA, "User A", "User the Chat")        
       Person_Ext(customerB, "User B", "User the Chat")
 
-      Container_Boundary(c1, "Chat") {
-        Container(spa, "Single-Page App", "TypeScript, Angular", "Frontend")
+      Container_Boundary(c1, "Chat - Frontend") {
+        Container(spa, "Single-Page App", "TypeScript, Angular", "Frontend")        
+      }
+      Container_Boundary(c2, "Chat - Backend") {
         Container(web_app, "WebAPI REST", ".NET, c#, ASP.NET Core", "Backend")
         ContainerDb(database, "Database", "PostgreSQL", "Stores user and messages")
       }
 
       BiRel(customerA, spa, "User Interface")
       BiRel(customerB, spa, "User Interface")
-      BiRel(spa, web_app, "Send/Receive", "HTTP")
+      BiRel(spa, web_app, "Send/Receive", "HTTP/WebSocket")
       Rel(web_app, database, "Dapper")
       UpdateRelStyle(customerA, spa, $offsetY="-40", $offsetX="-90")
       UpdateRelStyle(customerB, spa, $offsetY="-40", $offsetX="60")   
       UpdateRelStyle(spa, web_app, $offsetY="-35", $offsetX="-40")
 
-      UpdateLayoutConfig($c4ShapeInRow="2", $c4BoundaryInRow="1")
+      UpdateLayoutConfig($c4ShapeInRow="2", $c4BoundaryInRow="3")
 ```
